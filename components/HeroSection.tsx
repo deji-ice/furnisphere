@@ -12,7 +12,7 @@ const HeroSection = () => {
           We specialize in buying and selling high-quality, marketable
           furniture, each piece reflecting our unique aesthetic.
         </p>
-        <button className="bg-[#FAFAFA] h-14 w-44 p-2.5 rounded-[50px] text-slate-950 text-xl font-medium mt-8">
+        <button className="bg-[#FAFAFA] h-14 w-44 p-2.5 rounded-[50px] text-slate-950 text-xl font-medium mt-8 lg:mt-5">
           Shop Now
         </button>
       </div>
