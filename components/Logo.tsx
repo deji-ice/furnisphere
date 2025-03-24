@@ -14,9 +14,9 @@ const Logo = ({ isOpen }: LogoProps) => {
             alt="Logo"
             width={100}
             height={100}
-            className="h-10 w-10 [filter:brightness(0.12)_saturate(0%)]"
+            className="h-10 w-10 [filter:brightness(0.12)_saturate(0%)] dark:[filter:brightness(10)_saturate(100%)]"
           />
-          <h3 className="font-medium text-2xl  text-black">FurniSphere</h3>
+          <h3 className={`font-medium text-2xl text-black`}>FurniSphere</h3>
         </div>
       ) : (
         <div className="flex items-center gap-2.5">
@@ -27,7 +27,7 @@ const Logo = ({ isOpen }: LogoProps) => {
             height={100}
             className="h-10 w-10"
           />
-          <h3 className="font-medium text-2xl text-white">FurniSphere</h3>
+          <h3 className={`font-medium text-2xl text-white`}>FurniSphere</h3>
         </div>
       )}
     </div>

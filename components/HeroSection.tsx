@@ -5,10 +5,10 @@ const HeroSection = () => {
   return (
     <div className="bg-[url('/assets/images/background.png')] relative bg-cover bg-center md:px-8 lg:px-60 w-full h-dvh flex flex-col items-center justify-center">
       <div className="text-center text-[#FAFAFA] flex flex-col items-center gap-4 md:gap-6">
-        <h2 className="text-[27px] md:text-4xl lg:text-6xl leading-9 md:leading-12 lg:leading-20 capitalize font-medium ">
+        <h2 className="text-3xl md:text-4xl lg:text-[70px] leading-10 md:leading-12 lg:leading-20 capitalize font-medium ">
           Find the perfect furniture to complete your home
         </h2>
-        <p className="text-base md:text-xl font-normal max-w-[340px] md:max-w-[600px] lg:max-w-[800px]">
+        <p className="text-base md:text-xl font-normal max-w-[340px] md:max-w-[600px] lg:max-w-[650px] ">
           We specialize in buying and selling high-quality, marketable
           furniture, each piece reflecting our unique aesthetic.
         </p>
