@@ -3,10 +3,11 @@ import React from "react";
 
 type LogoProps = {
   isOpen: boolean;
+  scrolled?: boolean;
 };
-const Logo = ({ isOpen }: LogoProps) => {
+const Logo = ({ isOpen, scrolled }: LogoProps) => {
   return (
-    <div className={`flex items-center relative z-42 gap-2.5`}>
+    <div className={`flex items-center relative z-42 gap-2.5 `}>
       {isOpen ? (
         <div className="flex items-center gap-2.5">
           <Image
@@ -25,9 +26,17 @@ const Logo = ({ isOpen }: LogoProps) => {
             alt="Logo"
             width={100}
             height={100}
-            className="h-10 w-10"
+            className={`h-10 w-10 ${
+              scrolled && "[filter:brightness(0.12)_saturate(0%)]"
+            }`}
           />
-          <h3 className={`font-medium text-2xl text-white`}>FurniSphere</h3>
+          <h3
+            className={`font-medium text-2xl  ${
+              scrolled ? "text-slate-950" : "text-white"
+            }`}
+          >
+            FurniSphere
+          </h3>
         </div>
       )}
     </div>

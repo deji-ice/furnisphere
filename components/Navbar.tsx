@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,9 +17,10 @@ type MobileMenuProps = {
   isOpen: boolean;
   links: { name: string; path: string }[];
   onClose: () => void;
+  scrolled?: boolean;
 };
 
-const MobileMenu = ({ isOpen, links, onClose }: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, links, onClose, scrolled }: MobileMenuProps) => {
   return (
     <AnimatePresence>
       {isOpen && (
@@ -49,18 +50,31 @@ const MobileMenu = ({ isOpen, links, onClose }: MobileMenuProps) => {
 };
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <div
-      className={`px-4 py-5 md:px-6 lg:px-[70px] flex items-center bg-transparent fixed w-full justify-between z-40`}
+    <motion.div
+      className={` py-5 md:px-6 lg:px-[70px] flex items-center  fixed w-full justify-between z-40 ${
+        scrolled
+          ? "  px-2  text-slate-900 rounded-b-xl lg:rounded-none backdrop-blur-[2px] bg-background/50  shadow-sm"
+          : "bg-transparent px-4  text-white"
+      }`}
     >
-      <Logo isOpen={isMenuOpen} />
+      <Logo scrolled={scrolled} isOpen={isMenuOpen} />
 
       <div className="hidden lg:flex items-center gap-8">
         {links.map((link) => (
           <Link
             key={link.name}
             href={link.path}
-            className="text-base font-normal text-white hover:text-gray-200"
+            className="text-base font-medium hover:text-gray-200"
           >
             {link.name}
           </Link>
@@ -74,28 +88,28 @@ const Navbar = () => {
           width={50}
           alt="search icon"
           className={`h-6 w-6 ${
-            isMenuOpen && "[filter:brightness(0.12)_saturate(0%)] "
-          }`}
+            scrolled && "[filter:brightness(0.12)_saturate(0%)]"
+          } ${isMenuOpen && "[filter:brightness(0.12)_saturate(0%)] "}`}
         />
         <Image
           src={"/assets/icons/Shopping bag.svg"}
           height={50}
           width={50}
           alt="shopping bag icon"
-          className={`h-6 w-6  ${
-            isMenuOpen && "[filter:brightness(0.12)_saturate(0%)]"
-          }`}
+          className={`h-6 w-6 ${
+            scrolled && "[filter:brightness(0.12)_saturate(0%)]"
+          }  ${isMenuOpen && "[filter:brightness(0.12)_saturate(0%)]"}`}
         />
         <div
-          className={`w-0.5 h-8 hidden md:block ${
+          className={`w-0.5 h-8 hidden md:block ${scrolled && "bg-black"} ${
             isMenuOpen ? "bg-[#1e1e1e]" : "bg-white"
           }
           `}
         />
         <button
           className={` hidden md:block ${
-            isMenuOpen && "[filter:brightness(0.12)_saturate(0%)]"
-          }
+            scrolled && "[filter:brightness(0.12)_saturate(0%)]"
+          } ${isMenuOpen && "[filter:brightness(0.12)_saturate(0%)]"}
           `}
         >
           Login
@@ -106,17 +120,18 @@ const Navbar = () => {
           width={50}
           alt="user icon"
           className={`h-6 w-6 lg:hidden ${
-            isMenuOpen && "[filter:brightness(0.12)_saturate(0%)] "
-          }`}
+            scrolled && "[filter:brightness(0.12)_saturate(0%)]"
+          } ${isMenuOpen && "[filter:brightness(0.12)_saturate(0%)] "}`}
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         />
       </div>
       <MobileMenu
         isOpen={isMenuOpen}
         links={links}
+        scrolled={scrolled}
         onClose={() => setIsMenuOpen(false)}
       />
-    </div>
+    </motion.div>
   );
 };
 
