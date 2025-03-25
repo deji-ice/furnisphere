@@ -28,7 +28,7 @@ const MobileMenu = ({ isOpen, links, onClose }: MobileMenuProps) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.3 }}
-          className="absolute  bg-white w-full top-0 pt-20 z-41 shadow-lg rounded-lg p-4.5 md:p-7 md:pt-24 lg:hidden"
+          className="absolute  bg-white w-full top-0 pt-20 z-41 shadow-lg rounded-b-lg p-4.5 md:p-7 md:pt-24 lg:hidden"
         >
           {links.map((link) => (
             <Link
@@ -74,8 +74,7 @@ const Navbar = () => {
           width={50}
           alt="search icon"
           className={`h-6 w-6 ${
-            isMenuOpen &&
-            "[filter:brightness(0.12)_saturate(0%)] dark:[filter:brightness(10)_saturate(100%)]"
+            isMenuOpen && "[filter:brightness(0.12)_saturate(0%)] "
           }`}
         />
         <Image
@@ -84,8 +83,7 @@ const Navbar = () => {
           width={50}
           alt="shopping bag icon"
           className={`h-6 w-6  ${
-            isMenuOpen &&
-            "[filter:brightness(0.12)_saturate(0%)] dark:[filter:brightness(10)_saturate(100%)]"
+            isMenuOpen && "[filter:brightness(0.12)_saturate(0%)]"
           }`}
         />
         <div
@@ -96,8 +94,7 @@ const Navbar = () => {
         />
         <button
           className={` hidden md:block ${
-            isMenuOpen &&
-            "[filter:brightness(0.12)_saturate(0%)] dark:[filter:brightness(10)_saturate(100%)] "
+            isMenuOpen && "[filter:brightness(0.12)_saturate(0%)]"
           }
           `}
         >

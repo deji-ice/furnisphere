@@ -14,7 +14,7 @@ const Logo = ({ isOpen }: LogoProps) => {
             alt="Logo"
             width={100}
             height={100}
-            className="h-10 w-10 [filter:brightness(0.12)_saturate(0%)] dark:[filter:brightness(10)_saturate(100%)]"
+            className="h-10 w-10 [filter:brightness(0.12)_saturate(0%)] "
           />
           <h3 className={`font-medium text-2xl text-black`}>FurniSphere</h3>
         </div>
