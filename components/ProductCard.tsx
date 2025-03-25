@@ -3,7 +3,7 @@ import React from "react";
 
 const ProductCard = () => {
   return (
-    <div className="flex flex-col justify-between items-center h-[375px] w-[365px] bg-[#F2F2F2] rounded-3xl p-5">
+    <div className="flex flex-col justify-between items-center h-[375px] w-[365px] lg:h-[420px] lg:w-[410px] bg-[#F2F2F2] rounded-3xl p-5">
       <div className="flex justify-between items-center w-full">
         <span className="w-[113.7px] h-[47.3px] bg-white rounded-4xl flex items-center justify-center font-medium text-lg">
           Best Sale
@@ -20,7 +20,7 @@ const ProductCard = () => {
         src={`/assets/images/image.png`}
         height={300}
         width={300}
-        className=""
+        className= " lg:w-[420px]"
       />
       <div className="flex items-center justify-between w-full">
         <div className="flex flex-col items-start">
