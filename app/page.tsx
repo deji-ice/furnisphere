@@ -1,6 +1,7 @@
 import HeroSection from "@/components/HeroSection";
-import HomeRecommendations from "@/components/HomeRecommendations.tsx";
+import HomeRecommendations from "@/components/HomeRecommendations";
 import NewCollection from "@/components/NewCollection";
+import Offers from "@/components/Offers";
 import Image from "next/image";
 
 export default function Home() {
@@ -8,7 +9,8 @@ export default function Home() {
     <div className="">
       <HeroSection />
       <NewCollection />
-      <HomeRecommendations/>
+      <HomeRecommendations />
+      <Offers />
     </div>
   );
 }

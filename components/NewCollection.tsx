@@ -5,7 +5,7 @@ const NewCollection = () => {
   return (
     <section className="h-full flex flex-col  items-center my-10 px-3  ">
       <div className="flex flex-col items-center justify-center gap-2.5">
-        <h2 className="text-3xl font-medium">Our New Collections</h2>
+        <h2 className="text-3xl lg:text-5xl font-medium">Our New Collections</h2>
         <p className="text-base text-center text-[#878787] md:text-xl font-normal  md:max-w-[600px] lg:max-w-[650px] ">
           These products are crafted using wood sourced from responsibly
           certified forests
