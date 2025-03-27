@@ -25,7 +25,7 @@ const Offers = () => {
     },
   ];
   return (
-    <section className="my-14 space-y-6 px-3">
+    <section className="my-16 space-y-6 xl:space-y-14 px-3">
       <div className="flex flex-col items-center justify-center gap-2.5 lg:gap-5">
         <h2 className="text-center text-3xl font-medium lg:text-5xl">
           What We Can Offer You
