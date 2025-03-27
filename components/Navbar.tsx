@@ -60,7 +60,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <motion.div
+    <motion.nav
       className={` py-5 md:px-6 lg:px-[70px] flex items-center  fixed w-full justify-between z-40 ${
         scrolled
           ? "  px-2  text-slate-900 rounded-b-xl lg:rounded-none backdrop-blur-[2px] bg-background/50  shadow-sm"
@@ -131,7 +131,7 @@ const Navbar = () => {
         scrolled={scrolled}
         onClose={() => setIsMenuOpen(false)}
       />
-    </motion.div>
+    </motion.nav>
   );
 };
 
