@@ -1,19 +1,37 @@
 import React from "react";
 import TestimonialCard from "./TestimonialCard";
 
+ type ReviewData = {
+  user: {
+    name: string;
+    jobTitle: string;
+    company: string;
+    avatar: string;
+  };
+  rating: number;
+  product: {
+    name: string;
+    image: string;
+  };
+  review: {
+    title: string;
+    description: string;
+  };
+}[];
+
 const Testimonials = () => {
-  const reviewData = [
+  const reviewData: ReviewData = [
     {
       user: {
         name: "Esther Howard",
         jobTitle: "CEO",
         company: "Wells Fargo",
-        avatar: "path/to/esther-avatar.jpg",
+        avatar: "/assets/images/Ellipse 109jenny.png",
       },
       rating: 4.5,
       product: {
         name: "Dining Set",
-        image: "path/to/chair-image.jpg",
+        image: "/assets/images/image 260.png",
       },
       review: {
         title: "Stylish and durable furniture",
@@ -34,7 +52,9 @@ const Testimonials = () => {
         </p>
       </div>
       <div>
-        <TestimonialCard />
+        {reviewData.map((review, index) => (
+          <TestimonialCard key={index} review={review} />
+        ))}
       </div>
     </div>
   );
