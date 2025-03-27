@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { aeonikFont } from "./fonts";
+import SmoothScrolling from "@/components/SmoothScrolling";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -26,8 +27,8 @@ export const metadata: Metadata = {
     shortcut: "/assets/icons/Logo.svg",
     apple: "/assets/icons/Logo.svg",
   },
-}; 
- 
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,9 +36,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${aeonikFont.variable}   antialiased`}>
+      <body className={`${aeonikFont.variable} antialiased`}>
         <Navbar />
-        {children}
+        <SmoothScrolling>{children}</SmoothScrolling>
       </body>
     </html>
   );
