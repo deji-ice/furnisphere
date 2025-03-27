@@ -1,8 +1,13 @@
 import Image from "next/image";
 import React from "react";
 
+type OffersType = {
+  icon: string;
+  title: string;
+  description: string;
+}[];
 const Offers = () => {
-  const offers = [
+  const offers: OffersType = [
     {
       icon: "/assets/icons/package.svg",
       title: "Made Your Order",
