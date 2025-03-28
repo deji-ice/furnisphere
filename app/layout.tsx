@@ -38,7 +38,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${aeonikFont.variable} antialiased`}>
         <Navbar />
-        <SmoothScrolling>{children}</SmoothScrolling>
+        {/* <SmoothScrolling>{children}</SmoothScrolling> */}
+        {children}
       </body>
     </html>
   );
