@@ -23,9 +23,9 @@ type TestimonialCardProps = {
 
 const TestimonialCard = ({ review }: TestimonialCardProps) => {
   return (
-    <div className="h-[510px] w-full max-w-[398px] min-w-[320px] rounded-3xl bg-[#FAFAFA] p-6">
+    <div className="flex h-fit gap-4 w-full max-w-[398px] min-w-[320px] flex-col justify-between rounded-3xl bg-[#FAFAFA] p-6 shadow-xs inset-shadow-xs">
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-5">
           <Image
             alt={review.user.name + "avatar"}
             width={50}
@@ -43,6 +43,19 @@ const TestimonialCard = ({ review }: TestimonialCardProps) => {
           <img src="/assets/icons/Star 2.svg" alt="" />
           <p className="text-lg text-[#F0A111]"> {review.rating}</p>
         </span>
+      </div>
+      <div className="mt-6 flex h-[200px] w-full items-center justify-center rounded-3xl bg-[#F2F2F2]">
+        <Image
+          src={review.product.image}
+          alt={review.product.name}
+          height={200}
+          width={200}
+          className="w-full rounded-3xl object-contain"
+        />
+      </div>
+      <div className="mt-4 flex flex-col items-start justify-between gap-2.5 text-lg">
+        <p className="font-medium text-black">{review.review.title}</p>
+        <p className="text-[#878787]">{review.review.description}</p>
       </div>
     </div>
   );
