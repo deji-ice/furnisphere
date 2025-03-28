@@ -3,7 +3,7 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <div className="h-dvh relative flex w-full flex-col items-center justify-center bg-[url('/assets/images/background.png')] bg-cover bg-center md:px-8 xl:px-60">
+    <div className="h-dvh relative flex w-full flex-col items-center justify-center bg-[url('/assets/images/background.png')] bg-cover bg-center md:px-8 xl:px-40">
       <div className="flex flex-col items-center gap-4 text-center text-[#FAFAFA] md:gap-6">
         <h2 className="md:leading-12 lg:leading-20 text-3xl font-medium capitalize leading-10 md:text-4xl lg:text-[70px]">
           Find the perfect furniture to complete your home
