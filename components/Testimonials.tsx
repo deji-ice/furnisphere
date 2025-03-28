@@ -80,6 +80,60 @@ const Testimonials = () => {
           "I bought a dining set, and it looks even better in person. Highly recommend!",
       },
     },
+    {
+      user: {
+        name: "Esther Howard",
+        jobTitle: "CEO",
+        company: "Wells Fargo",
+        avatar: "/assets/images/Ellipse 109jenny.png",
+      },
+      rating: 4.5,
+      product: {
+        name: "Dining Set",
+        image: "/assets/images/image 260.png",
+      },
+      review: {
+        title: "Stylish and durable furniture",
+        description:
+          "I bought a dining set, and it looks even better in person. Highly recommend!",
+      },
+    },
+    {
+      user: {
+        name: "Esther Howard",
+        jobTitle: "CEO",
+        company: "Wells Fargo",
+        avatar: "/assets/images/Ellipse 109jenny.png",
+      },
+      rating: 4.5,
+      product: {
+        name: "Dining Set",
+        image: "/assets/images/image 260.png",
+      },
+      review: {
+        title: "Stylish and durable furniture",
+        description:
+          "I bought a dining set, and it looks even better in person. Highly recommend!",
+      },
+    },
+    {
+      user: {
+        name: "Esther Howard",
+        jobTitle: "CEO",
+        company: "Wells Fargo",
+        avatar: "/assets/images/Ellipse 109jenny.png",
+      },
+      rating: 4.5,
+      product: {
+        name: "Dining Set",
+        image: "/assets/images/image 260.png",
+      },
+      review: {
+        title: "Stylish and durable furniture",
+        description:
+          "I bought a dining set, and it looks even better in person. Highly recommend!",
+      },
+    },
   ];
 
   const handleContainerScroll = (e: React.UIEvent<HTMLDivElement>) => {
@@ -89,7 +143,7 @@ const Testimonials = () => {
     console.log("scrollLeft:", scrollLeft);
 
     // 2. Calculate the effective width of each card (including gap)
-    const cardWidth = 320 + 16; // card width + gap
+    const cardWidth = 345 + 16; // card width + gap
 
     // 3. Calculate which card is most visible by dividing scroll position by card width
     const newIndex = Math.round(scrollLeft / cardWidth);
@@ -107,7 +161,7 @@ const Testimonials = () => {
         <h2 className="text-center text-3xl font-medium lg:text-5xl">
           Word From Our Happy Customers
         </h2>
-        <p className="w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] md:w-full lg:max-w-[680px] lg:text-xl">
+        <p className="w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] lg:w-[400px] lg:max-w-[400px] lg:text-xl">
           Hear from our clients as they share how FurniSphere furniture
           transforms their homes
         </p>
@@ -131,7 +185,7 @@ const Testimonials = () => {
           {reviewData.map((review, index) => (
             <div
               key={index}
-              className="w-[320px] flex-none snap-center"
+              className="w-[345px] flex-none snap-center"
               onPointerDown={() => setActiveIndex(index)}
             >
               <TestimonialCard review={review} />
@@ -152,7 +206,7 @@ const Testimonials = () => {
       </ReactLenis>
 
       {/* Desktop Grid Layout */}
-      <div className="hidden md:mx-auto md:grid md:grid-cols-2 lg:max-w-[1300px] lg:grid-cols-3 lg:gap-4">
+      <div className="hidden md:mx-auto md:grid md:grid-cols-2 lg:mt-8 lg:max-w-[1300px] lg:grid-cols-3 lg:gap-4 xl:gap-y-10">
         {reviewData.map((review, index) => (
           <TestimonialCard key={index} review={review} />
         ))}

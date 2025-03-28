@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${aeonikFont.variable} antialiased`}>
+      <body className={`${aeonikFont.variable} antialiased bg-[#fafafa]`}>
         <Navbar />
         {/* <SmoothScrolling>{children}</SmoothScrolling> */}
         {children}

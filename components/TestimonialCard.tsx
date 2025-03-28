@@ -23,7 +23,7 @@ type TestimonialCardProps = {
 
 const TestimonialCard = ({ review }: TestimonialCardProps) => {
   return (
-    <div className="flex h-fit gap-4 w-full max-w-[398px] min-w-[320px] flex-col justify-between rounded-3xl bg-[#FAFAFA] p-6 shadow-xs inset-shadow-xs">
+    <div className="flex h-fit w-full max-w-[398px] min-w-[320px] flex-col justify-between gap-4 rounded-3xl bg-[rgba(250,250,250,1)] p-6 shadow-xs inset-shadow-xs md:w-max-[300px] lg:max-w-[420px]  xl:max-w-[415px]">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-5">
           <Image
@@ -31,6 +31,7 @@ const TestimonialCard = ({ review }: TestimonialCardProps) => {
             width={50}
             height={50}
             src={review.user.avatar}
+            loading="lazy"
           />
           <div>
             <p className="font-medium text-black">{review.user.name}</p>
