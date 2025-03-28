@@ -1,3 +1,4 @@
+import FAQs from "@/components/FAQs";
 import HeroSection from "@/components/HeroSection";
 import HomeRecommendations from "@/components/HomeRecommendations";
 import NewCollection from "@/components/NewCollection";
@@ -13,6 +14,7 @@ export default function Home() {
       <HomeRecommendations />
       <Offers />
       <Testimonials />
+      <FAQs />
     </div>
   );
 }
