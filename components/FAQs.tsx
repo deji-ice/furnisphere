@@ -45,7 +45,7 @@ const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <div className="my-16 flex flex-col items-center space-y-6 px-3">
+    <section className="my-16 flex flex-col items-center space-y-6 px-3">
       <div className="flex flex-col items-center justify-center gap-2.5 lg:w-[620px] lg:gap-5">
         <h2 className="text-center text-3xl font-medium lg:text-5xl">
           You’ve Got Questions & We’ve Got Answers!
@@ -73,7 +73,7 @@ const FAQs = () => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

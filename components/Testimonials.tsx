@@ -156,12 +156,12 @@ const Testimonials = () => {
   };
 
   return (
-    <div className="my-16 space-y-6 px-3">
+    <section className="my-16 space-y-6 px-3">
       <div className="flex flex-col items-center justify-center gap-2.5 lg:gap-5">
         <h2 className="text-center text-3xl font-medium lg:text-5xl">
           Word From Our Happy Customers
         </h2>
-        <p className="w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] lg:w-[400px] lg:max-w-[400px] lg:text-xl">
+        <p className="w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] lg:w-[400px] lg:max-w-[550px] lg:text-xl xl:w-full">
           Hear from our clients as they share how FurniSphere furniture
           transforms their homes
         </p>
@@ -211,7 +211,7 @@ const Testimonials = () => {
           <TestimonialCard key={index} review={review} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
