@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { aeonikFont } from "./fonts";
 import SmoothScrolling from "@/components/SmoothScrolling";
+import Footer from "@/components/Footer";
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -39,7 +40,7 @@ export default function RootLayout({
       <body className={`${aeonikFont.variable} antialiased bg-[#fafafa]`}>
         <Navbar />
         <SmoothScrolling>{children}</SmoothScrolling>
-        {/* {children} */}
+       <Footer/>
       </body>
     </html>
   );
