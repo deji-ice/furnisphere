@@ -1,11 +1,19 @@
+"use client";
 import Image from "next/image";
 import React from "react";
 
 const HeroSection = () => {
   return (
-    <div className="h-dvh relative flex w-full flex-col items-center justify-center bg-[url('/assets/images/background.png')] bg-cover bg-center md:px-8 xl:px-40">
-      <div className="flex flex-col items-center gap-4 text-center text-[#FAFAFA] md:gap-6">
-        <h2 className="md:leading-12 lg:leading-20 text-3xl font-medium capitalize leading-10 md:text-4xl lg:text-[70px]">
+    <section className="relative flex h-dvh w-full flex-col items-center justify-center md:px-8 xl:px-40">
+      <Image
+        src="/assets/images/background.png"
+        alt="Hero background"
+        fill
+        priority
+        className="object-cover object-center"
+      />
+      <div className="relative z-10 flex flex-col items-center gap-4 text-center text-[#FAFAFA] md:gap-6">
+        <h2 className="text-3xl leading-10 font-medium capitalize md:text-4xl md:leading-12 lg:text-[70px] lg:leading-20">
           Find the perfect furniture to complete your home
         </h2>
         <p className="max-w-[340px] text-base font-normal md:max-w-[600px] md:text-xl lg:max-w-[650px]">
@@ -16,16 +24,17 @@ const HeroSection = () => {
           Shop Now
         </button>
       </div>
-      <span className="absolute bottom-8 mt-10 flex h-12 w-12 animate-bounce items-center justify-center rounded-full border border-white bg-transparent transition duration-300 ease-in-out hover:bg-white/10 motion-reduce:animate-none">
-        <Image
-          src={"/assets/icons/Arrow Down.svg"}
+      \
+      <span className="absolute bottom-8 z-10 flex h-12 w-12 animate-bounce items-center justify-center rounded-full border border-white bg-transparent transition duration-300 ease-in-out hover:bg-white/10 motion-reduce:animate-none">
+        <img
+          src="/assets/icons/Arrow Down.svg"
           height={50}
           width={50}
-          alt="arrow right icon"
+          alt="Arrow down icon"
           className="h-6 w-6"
         />
       </span>
-    </div>
+    </section>
   );
 };
 
