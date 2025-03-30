@@ -1,16 +1,15 @@
 "use client";
-import { Lenis, ReactLenis } from "lenis/react";
+import { ReactLenis } from "lenis/react";
 import React, { useRef, useState } from "react";
 import TestimonialCard from "./TestimonialCard";
 import data from "@/lib/data.json";
-import {ReviewData} from "@/types/index"
-
+import { ReviewData } from "@/types/index";
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const lenisRef = useRef<any>(null);
+  const lenisRef = useRef(null);
 
-  const reviewData: ReviewData[] = data.testimonials
+  const reviewData: ReviewData[] = data.testimonials;
 
   const handleContainerScroll = (e: React.UIEvent<HTMLDivElement>) => {
     // 1. Get the current scroll position from the event's target element
@@ -42,7 +41,7 @@ const Testimonials = () => {
           transforms their homes
         </p>
       </div>
-      {/* Mobile Carousel with Lenis for smooth horizontal scrolling */}
+      {/* Mobile Horizontal Scroll Layout */}
       <ReactLenis
         ref={lenisRef}
         className="md:hidden"

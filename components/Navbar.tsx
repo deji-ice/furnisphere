@@ -1,9 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
-import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
 
 const links = [
   { name: "Home", path: "/" },
@@ -20,7 +20,7 @@ type MobileMenuProps = {
   scrolled?: boolean;
 };
 
-const MobileMenu = ({ isOpen, links, onClose, scrolled }: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, links}: MobileMenuProps) => {
   return (
     <AnimatePresence>
       {isOpen && (

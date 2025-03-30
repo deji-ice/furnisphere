@@ -1,7 +1,7 @@
 "use client";
 import { AnimatePresence, motion } from "motion/react";
 import React from "react";
-import Image from "next/image";
+
 
 type FaqCardProps = {
   isOpen: boolean;
