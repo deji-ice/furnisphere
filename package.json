@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@studio-freight/react-lenis": "^0.0.47",
+    "gsap": "^3.12.7",
     "lenis": "^1.2.3",
     "motion": "^12.5.0",
     "next": "15.2.3",
