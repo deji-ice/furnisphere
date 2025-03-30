@@ -22,7 +22,7 @@ const NewCollection = () => {
           <ProductCard key={index} product={product} />
         ))}
       </div>
-      <button className="mt-10 h-14 w-60 rounded-[50px] border border-[#1E1E1E] bg-white text-lg font-medium lg:mt-12">
+      <button  className="mt-10 h-14 w-60 hover:cursor-not-allowed rounded-[50px] border border-[#1E1E1E] bg-white text-lg font-medium lg:mt-12">
         See More Collections
       </button>
     </section>
