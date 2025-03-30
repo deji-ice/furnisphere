@@ -2,12 +2,12 @@ import Image from "next/image";
 import React from "react";
 
 type LogoProps = {
-  isOpen: boolean;
+  isOpen?: boolean;
   scrolled?: boolean;
 };
 const Logo = ({ isOpen, scrolled }: LogoProps) => {
   return (
-    <div className={`flex items-center relative z-42 gap-2.5 `}>
+    <div className={`relative z-5 flex items-center gap-2.5`}>
       {isOpen ? (
         <div className="flex items-center gap-2.5">
           <Image
@@ -15,9 +15,9 @@ const Logo = ({ isOpen, scrolled }: LogoProps) => {
             alt="Logo"
             width={100}
             height={100}
-            className="h-10 w-10 [filter:brightness(0.12)_saturate(0%)] "
+            className="h-10 w-10 [filter:brightness(0.12)_saturate(0%)]"
           />
-          <h3 className={`font-medium text-2xl text-black`}>FurniSphere</h3>
+          <h3 className={`text-2xl font-medium text-black`}>FurniSphere</h3>
         </div>
       ) : (
         <div className="flex items-center gap-2.5">
@@ -31,7 +31,7 @@ const Logo = ({ isOpen, scrolled }: LogoProps) => {
             }`}
           />
           <h3
-            className={`font-medium text-2xl  ${
+            className={`text-2xl font-medium ${
               scrolled ? "text-slate-950" : "text-white"
             }`}
           >
