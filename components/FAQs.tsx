@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import FaqCard from "./FaqCard";
+import Image from "next/image";
 
 export type FAQ = {
   question: string;
@@ -55,10 +56,12 @@ const FAQs = () => {
         </p>
         <button className="flex h-[58px] w-[170px] cursor-pointer items-center justify-center gap-2 rounded-full bg-[#1E1E1E] px-4 text-white transition duration-300 ease-in-out hover:bg-[#333333] lg:w-[200px] lg:text-lg">
           Contact Us{" "}
-          <img
+          <Image
             src="/assets/icons/arrow-up-right.svg"
             alt=""
             className="h-5"
+            width={20}
+            height={20}
             style={{ filter: "invert(1)" }}
           />
         </button>

@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import Image from "next/image";
+import HamburgerIcon from "./HamburgerIcon";
 
 const links = [
   { name: "Home", path: "/" },
@@ -20,29 +21,35 @@ type MobileMenuProps = {
   scrolled?: boolean;
 };
 
-const MobileMenu = ({ isOpen, links}: MobileMenuProps) => {
+const MobileMenu = ({ isOpen, links, onClose }: MobileMenuProps) => {
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -50, right: 0 }}
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -50 }}
-          transition={{ duration: 0.3 }}
-          className="absolute top-0 z-8 w-full rounded-b-lg bg-white p-4.5 pt-20 shadow-lg md:p-7 md:pt-24 lg:hidden"
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.15 }}
+          className="absolute top-0 right-0 left-0 z-40 w-full bg-white shadow-lg lg:hidden"
         >
-          {links.map((link) => (
-            <Link
-              key={link.name}
-              href={link.path}
-              className="flex flex-col rounded py-2.5 text-gray-800 hover:bg-gray-200 md:text-lg"
+          <nav className="flex flex-col space-y-2 p-4 pt-20">
+            {links.map((link) => (
+              <Link
+                key={link.name}
+                href={link.path}
+                onClick={onClose}
+                className="rounded-md px-4 py-2 text-gray-800 transition-colors hover:bg-gray-100"
+              >
+                {link.name}
+              </Link>
+            ))}
+            <button
+              onClick={onClose}
+              className="mt-2 w-full rounded border-2 border-slate-900 px-4 py-2 font-medium text-slate-900 transition-colors hover:bg-slate-900 hover:text-white"
             >
-              {link.name}
-            </Link>
-          ))}
-          <button className="mt-3 w-full rounded-sm border-2 border-slate-900 px-2 py-2 text-lg font-medium text-slate-950 md:hidden">
-            Login
-          </button>
+              Login
+            </button>
+          </nav>
         </motion.div>
       )}
     </AnimatePresence>
@@ -77,27 +84,22 @@ const Navbar = () => {
         opacity: 1,
         y: 0,
         backgroundColor: scrolled
-          ? "rgba(255, 255, 255, 0.5)"
+          ? "rgba(255, 255, 255, 0.9)"
           : "rgba(255, 255, 255, 0)",
         backdropFilter: scrolled ? "blur(8px)" : "blur(0px)",
-        boxShadow: scrolled
-          ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
-          : "0 0px 0px 0px rgba(0, 0, 0, 0)",
-        color: scrolled ? "#1e1e1e" : "#ffffff",
+        boxShadow: scrolled ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "none",
       }}
       transition={{
-        duration: 0.2,
+        duration: 0.2, 
         ease: [0.25, 0.1, 0.25, 1.0],
-        backdropFilter: { duration: 0.3 },
-        backgroundColor: { duration: 0.3 },
       }}
-      className={`fixed z-8 flex w-full items-center justify-between py-5 md:px-6 lg:px-[70px] ${
+      className={`fixed z-50 flex w-full items-center justify-between py-5 px-3 md:px-6 lg:px-[70px] ${
         scrolled
-          ? "bg-background/50 rounded-b-xl px-2 text-slate-900 shadow-sm backdrop-blur-[2px] lg:rounded-none"
-          : "bg-transparent px-4 text-white"
+          ? "bg-white/50 text-slate-900 shadow-sm backdrop-blur-md"
+          : "bg-transparent text-white"
       }`}
     >
-      <Logo scrolled={scrolled} isOpen={isMenuOpen} zIndex={10} />
+      <Logo scrolled={scrolled} isOpen={isMenuOpen} zIndex={51} />
 
       <div className="hidden items-center gap-8 lg:flex">
         {links.map((link, index) => (
@@ -120,7 +122,9 @@ const Navbar = () => {
             >
               {link.name}
               <motion.span
-                className={`absolute -bottom-1 left-0 h-[1px] ${scrolled ? "bg-slate-900" : "bg-white"}`}
+                className={`absolute -bottom-1 left-0 h-[1px] ${
+                  scrolled ? "bg-slate-900" : "bg-white"
+                }`}
                 initial={{ width: 0 }}
                 whileHover={{
                   width: "100%",
@@ -194,25 +198,11 @@ const Navbar = () => {
           Login
         </motion.button>
 
-        <motion.div
-          whileHover={{
-            filter: "brightness(1) saturate(100%)",
-            scale: 1.05,
-          }}
-          transition={{ duration: 0.2 }}
-          className="relative lg:hidden"
-        >
-          <Image
-            src={"/assets/icons/Hamburger menu.svg"}
-            height={50}
-            width={50}
-            alt="menu icon"
-            className={`h-6 w-6 cursor-pointer transition-all duration-300 ${
-              scrolled ? "[filter:brightness(0.12)_saturate(0%)]" : ""
-            } ${isMenuOpen ? "[filter:brightness(0.12)_saturate(0%)]" : ""}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          />
-        </motion.div>
+        <HamburgerIcon
+          isOpen={isMenuOpen}
+          isDark={scrolled || isMenuOpen}
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        />
       </div>
 
       <MobileMenu

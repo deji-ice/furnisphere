@@ -20,12 +20,12 @@ const HeroSection = () => {
           We specialize in buying and selling high-quality, marketable
           furniture, each piece reflecting our unique aesthetic.
         </p>
-        <button className="mt-8 h-14 w-44 cursor-pointer rounded-[50px] bg-[#FAFAFA] p-2.5 text-xl font-medium text-slate-950 lg:mt-5">
+        <button aria-label="Shop now for furniture" className="mt-8 h-14 w-44 cursor-pointer rounded-[50px] bg-[#FAFAFA] p-2.5 text-xl font-medium text-slate-950 lg:mt-5">
           Shop Now
         </button>
       </div>
       <span className="absolute bottom-8 z-5 flex h-12 w-12 items-center justify-center rounded-full border border-white bg-transparent hover:bg-white/10">
-        <img
+        <Image
           src="/assets/icons/Arrow Down.svg"
           height={50}
           width={50}

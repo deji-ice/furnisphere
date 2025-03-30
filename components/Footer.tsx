@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "./Logo";
+import Image from "next/image";
 
 const Footer = () => {
   const socialMedia = [
@@ -10,7 +11,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="flex w-full flex-col gap-8 xl:gap-5 bg-[rgba(30,30,30,1)] p-3 py-5 md:p-5 lg:p-8 xl:space-y-16 xl:p-12">
+    <footer className="flex w-full flex-col gap-8 bg-[rgba(30,30,30,1)] p-3 py-5 md:p-5 lg:p-8 xl:gap-5 xl:space-y-16 xl:p-12">
       <div className="*flex-wrap flex flex-col items-start gap-3 md:flex-row lg:justify-between">
         <div className="flex flex-col items-start gap-5 md:flex-1 lg:w-full lg:max-w-[400px] xl:max-w-[600px] xl:gap-8">
           <Logo zIndex={5} />
@@ -26,7 +27,9 @@ const Footer = () => {
               Subscribe to newsletter
             </label>
             <span className="flex h-[58px] w-full items-center rounded-[40px] border border-[rgba(255,255,255,0.4)] bg-[rgba(40,40,40,1)] p-1 pl-5 md:max-w-[300px] lg:max-w-[499px] xl:min-w-[500px]">
-              <img
+              <Image
+                height={24}
+                width={24}
                 src="/assets/icons/message.svg"
                 className="h-6 w-6"
                 alt="message"
@@ -86,7 +89,9 @@ const Footer = () => {
               key={social.name}
               className="flex h-[56px] w-fit cursor-pointer items-center justify-center gap-2 rounded-[60px] border border-[rgba(159,158,158,0.3)] bg-[rgba(40,40,40,1)] p-4 text-lg text-white transition-colors hover:bg-[rgba(60,60,60,1)]"
             >
-              <img
+              <Image
+                width={24}
+                height={24}
                 src={social.icon}
                 alt={`${social.name} icon`}
                 className="h-6 w-6"

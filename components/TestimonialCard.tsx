@@ -26,7 +26,12 @@ const TestimonialCard = ({ review }: TestimonialCardProps) => {
           </div>
         </div>
         <span className="flex items-center gap-3">
-          <img src="/assets/icons/Star 2.svg" alt="" />
+          <Image
+            src="/assets/icons/Star 2.svg"
+            width={50}
+            height={50}
+            alt=" review star"
+          />
           <p className="text-lg text-[#F0A111]"> {review.rating}</p>
         </span>
       </div>

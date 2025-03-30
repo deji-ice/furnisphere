@@ -11,7 +11,7 @@ const CTA = () => {
         visited our website. We have furniture with reverse quality ready to be
         sent to you
       </p>
-      <button className="px-auto h-[58px] w-[200px] rounded-[50px] bg-[rgba(250,250,250,1)] text-xl font-medium text-[rgba(30,30,30,1)] lg:text-2xl">
+      <button aria-label="Shop now for furniture" className="px-auto h-[58px] w-[200px] rounded-[50px] bg-[rgba(250,250,250,1)] text-xl font-medium text-[rgba(30,30,30,1)] lg:text-2xl">
         Shop Now
       </button>
     </section>
