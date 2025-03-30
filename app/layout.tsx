@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   viewport: "width=device-width, initial-scale=1, maximum-scale=5",
 
   openGraph: {
-    title: "FurniSphere | Transform Your Living Space",
+    title: "FurniSphere",
     description:
       "Explore our curated furniture collections designed for comfort, style and durability. Free shipping on orders over $500.",
     url: "https://www.furnisphere.com",
