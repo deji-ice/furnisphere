@@ -5,6 +5,7 @@ import { aeonikFont } from "./fonts";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
+import { LoadingProvider } from "@/context/LoadingContext";
 
 export const metadata: Metadata = {
   title: "FurniSphere",
@@ -76,12 +77,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${aeonikFont.variable} bg-[#fafafa] antialiased`}>
-        <LoadingScreen />
-        <main className="relative">
-          <Navbar />
-          <SmoothScrolling>{children}</SmoothScrolling>
-          <Footer />
-        </main>
+        <LoadingProvider>
+          <LoadingScreen />
+          <main className="relative">
+            <Navbar />
+            <SmoothScrolling>{children}</SmoothScrolling>
+            <Footer />
+          </main>
+        </LoadingProvider>
       </body>
     </html>
   );
