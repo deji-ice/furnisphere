@@ -1,29 +1,14 @@
 import Image from "next/image";
 import React from "react";
+import { ReviewData } from "@/types/index";
 
 type TestimonialCardProps = {
-  review: {
-    user: {
-      name: string;
-      jobTitle: string;
-      company: string;
-      avatar: string;
-    };
-    rating: number;
-    product: {
-      name: string;
-      image: string;
-    };
-    review: {
-      title: string;
-      description: string;
-    };
-  };
+  review: ReviewData;
 };
 
 const TestimonialCard = ({ review }: TestimonialCardProps) => {
   return (
-    <div className="flex h-fit w-full max-w-[398px] min-w-[320px] flex-col justify-between gap-4 rounded-3xl bg-[#ffffff] p-6 shadow-xs inset-shadow-xs md:w-max-[300px] lg:max-w-[420px]  xl:max-w-[415px]">
+    <div className="md:w-max-[300px] flex h-fit w-full max-w-[398px] min-w-[320px] flex-col justify-between gap-4 rounded-3xl bg-[#ffffff] p-6 shadow-xs lg:max-w-[420px] xl:max-w-[415px]">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-5">
           <Image

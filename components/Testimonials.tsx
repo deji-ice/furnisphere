@@ -2,139 +2,15 @@
 import { Lenis, ReactLenis } from "lenis/react";
 import React, { useRef, useState } from "react";
 import TestimonialCard from "./TestimonialCard";
+import data from "@/lib/data.json";
+import {ReviewData} from "@/types/index"
 
-type ReviewData = {
-  user: {
-    name: string;
-    jobTitle: string;
-    company: string;
-    avatar: string;
-  };
-  rating: number;
-  product: {
-    name: string;
-    image: string;
-  };
-  review: {
-    title: string;
-    description: string;
-  };
-}[];
 
 const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const lenisRef = useRef<any>(null);
 
-  const reviewData: ReviewData = [
-    {
-      user: {
-        name: "Esther Howard",
-        jobTitle: "CEO",
-        company: "Wells Fargo",
-        avatar: "/assets/images/Ellipse 109jenny.png",
-      },
-      rating: 4.5,
-      product: {
-        name: "Dining Set",
-        image: "/assets/images/image 260.png",
-      },
-      review: {
-        title: "Stylish and durable furniture",
-        description:
-          "I bought a dining set, and it looks even better in person. Highly recommend!",
-      },
-    },
-    {
-      user: {
-        name: "Esther Howard",
-        jobTitle: "CEO",
-        company: "Wells Fargo",
-        avatar: "/assets/images/Ellipse 109jenny.png",
-      },
-      rating: 4.5,
-      product: {
-        name: "Dining Set",
-        image: "/assets/images/image 260.png",
-      },
-      review: {
-        title: "Stylish and durable furniture",
-        description:
-          "I bought a dining set, and it looks even better in person. Highly recommend!",
-      },
-    },
-    {
-      user: {
-        name: "Esther Howard",
-        jobTitle: "CEO",
-        company: "Wells Fargo",
-        avatar: "/assets/images/Ellipse 109jenny.png",
-      },
-      rating: 4.5,
-      product: {
-        name: "Dining Set",
-        image: "/assets/images/image 260.png",
-      },
-      review: {
-        title: "Stylish and durable furniture",
-        description:
-          "I bought a dining set, and it looks even better in person. Highly recommend!",
-      },
-    },
-    {
-      user: {
-        name: "Esther Howard",
-        jobTitle: "CEO",
-        company: "Wells Fargo",
-        avatar: "/assets/images/Ellipse 109jenny.png",
-      },
-      rating: 4.5,
-      product: {
-        name: "Dining Set",
-        image: "/assets/images/image 260.png",
-      },
-      review: {
-        title: "Stylish and durable furniture",
-        description:
-          "I bought a dining set, and it looks even better in person. Highly recommend!",
-      },
-    },
-    {
-      user: {
-        name: "Esther Howard",
-        jobTitle: "CEO",
-        company: "Wells Fargo",
-        avatar: "/assets/images/Ellipse 109jenny.png",
-      },
-      rating: 4.5,
-      product: {
-        name: "Dining Set",
-        image: "/assets/images/image 260.png",
-      },
-      review: {
-        title: "Stylish and durable furniture",
-        description:
-          "I bought a dining set, and it looks even better in person. Highly recommend!",
-      },
-    },
-    {
-      user: {
-        name: "Esther Howard",
-        jobTitle: "CEO",
-        company: "Wells Fargo",
-        avatar: "/assets/images/Ellipse 109jenny.png",
-      },
-      rating: 4.5,
-      product: {
-        name: "Dining Set",
-        image: "/assets/images/image 260.png",
-      },
-      review: {
-        title: "Stylish and durable furniture",
-        description:
-          "I bought a dining set, and it looks even better in person. Highly recommend!",
-      },
-    },
-  ];
+  const reviewData: ReviewData[] = data.testimonials
 
   const handleContainerScroll = (e: React.UIEvent<HTMLDivElement>) => {
     // 1. Get the current scroll position from the event's target element

@@ -1,0 +1,163 @@
+{
+  "newCollections": [
+    {
+      "id": 1,
+      "title": "Avondale Wood Leg Sofa",
+      "price": 180.0,
+      "category": "Best Sale",
+      "colors": ["#E4DED7", "#8B7D65", "#000000", "#D9D9D9"],
+      "image": "/assets/images/products/avondale-wood-leg-sofa.png"
+    },
+    {
+      "id": 2,
+      "title": "Zuma Outdoor Upholstered",
+      "price": 280.0,
+      "category": "Top Rated",
+      "colors": ["#B0B0AC", "#525252", "#232323", "#D9D9D9"],
+      "image": "/assets/images/products/zuma-outdoor-upholstered.png"
+    },
+    {
+      "id": 3,
+      "title": "Pershing Leather Curved Chair",
+      "price": 290.0,
+      "category": "Best Price",
+      "colors": ["#C4A368", "#E4DED7", "#8B7D65", "#000000"],
+      "image": "/assets/images/products/pershing-leather-curved-chair.png"
+    },
+    {
+      "id": 4,
+      "title": "Powell Lounge Chair",
+      "price": 200.0,
+      "category": "Top Rated",
+      "colors": ["#E4DED7", "#8B7D65", "#000000", "#D9D9D9"],
+      "image": "/assets/images/products/powell-lounge-chair.png"
+    },
+    {
+      "id": 5,
+      "title": "Infiniti Swivel Chair",
+      "price": 250.0,
+      "category": "Best Price",
+      "colors": ["#545B60", "#232323", "#D9D9D9", "#C4A368"],
+      "image": "/assets/images/products/infiniti-swivel-chair.png"
+    },
+    {
+      "id": 6,
+      "title": "Cerca Striped",
+      "price": 220.0,
+      "category": "Best Sale",
+      "colors": ["#000000", "#439A35", "#8B7D65", "#CAC0BD"],
+      "image": "/assets/images/products/cerca-striped.png"
+    }
+  ],
+
+  "testimonials": [
+    {
+      "id": 1,
+      "user": {
+        "name": "Esther Howard",
+        "jobTitle": "CEO",
+        "company": "Wells Fargo",
+        "avatar": "/assets/images/users/esther-howard.png"
+      },
+      "rating": 4.5,
+      "product": {
+        "name": "Dining Set",
+        "image": "/assets/images/products/chair-test.png"
+      },
+      "review": {
+        "title": "Stylish and durable furniture",
+        "description": "I bought a dining set, and it looks even better in person. Highly recommend!"
+      }
+    },
+    {
+      "id": 2,
+      "user": {
+        "name": "Jenny Wilson",
+        "jobTitle": "CFO",
+        "company": "Nielsen",
+        "avatar": "/assets/images/users/jenny-wilson.png"
+      },
+      "rating": 4.3,
+      "product": {
+        "name": "Sofa",
+        "image": "/assets/images/products/avondale-wood-leg-sofa.png"
+      },
+      "review": {
+        "title": "Absolutely love my new sofa",
+        "description": "The quality is outstanding, and it fits perfectly in my living room. Great service and fast delivery!"
+      }
+    },
+    {
+      "id": 3,
+      "user": {
+        "name": "Ronald Richards",
+        "jobTitle": "CMO",
+        "company": "Advanta Inc",
+        "avatar": "/assets/images/users/ronald-richards.png"
+      },
+      "rating": 4.4,
+      "product": {
+        "name": "Bedroom Set",
+        "image": "/assets/images/products/bedframe-test.png"
+      },
+      "review": {
+        "title": "Exceptional craftsmanship",
+        "description": "My bedroom set is both elegant and sturdy. Couldn't be happier with my purchase!"
+      }
+    },
+    {
+      "id": 4,
+      "user": {
+        "name": "Leslie Alexander",
+        "jobTitle": "CFO",
+        "company": "Gillette",
+        "avatar": "/assets/images/users/leslie-alexander.png"
+      },
+      "rating": 4.2,
+      "product": {
+        "name": "Chaise Lounge",
+        "image": "/assets/images/products/couch-test.png"
+      },
+      "review": {
+        "title": "Smooth shopping experience",
+        "description": "The website was easy to navigate, and my order arrived on time and well-packaged"
+      }
+    },
+    {
+      "id": 5,
+      "user": {
+        "name": "Jane Cooper",
+        "jobTitle": "CMO",
+        "company": "Batz Group",
+        "avatar": "/assets/images/users/jane-cooper.png"
+      },
+      "rating": 4.4,
+      "product": {
+        "name": "Accent Chair",
+        "image": "/assets/images/products/stool-test.png"
+      },
+      "review": {
+        "title": "Beautiful designs with comfort",
+        "description": "My accent chair is both stylish and cozy. It's now my favorite spot to relax."
+      }
+    },
+    {
+      "id": 6,
+      "user": {
+        "name": "Kristin Watson",
+        "jobTitle": "CEO",
+        "company": "Metaful",
+        "avatar": "/assets/images/users/kristin-watson.png"
+      },
+      "rating": 4.6,
+      "product": {
+        "name": "Coffee Table",
+        "image": "/assets/images/products/couch-test.png"
+      },
+      "review": {
+        "title": "Great value for the price",
+        "description": "The coffee table I ordered exceeded my expectations. Will definitely shop here again!"
+      }
+    }
+  ]
+}
