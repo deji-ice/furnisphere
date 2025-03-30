@@ -8,7 +8,7 @@ export const aeonikFont = localFont({
             style: "normal",
         },
         {
-            path: "../public/assets/fonts/Aeonik/Aeonik-Airitalic.ttf",
+            path: "../public/assets/fonts/Aeonik/Aeonik-AirItalic.ttf",
             weight: "100",
             style: "italic",
         },
@@ -18,7 +18,7 @@ export const aeonikFont = localFont({
             style: "normal",
         },
         {
-            path: "../public/assets/fonts/Aeonik/Aeonik-Thinitalic.ttf",
+            path: "../public/assets/fonts/Aeonik/Aeonik-ThinItalic.ttf",
             weight: "200",
             style: "italic",
         },
@@ -28,7 +28,7 @@ export const aeonikFont = localFont({
             style: "normal",
         },
         {
-            path: "../public/assets/fonts/Aeonik/Aeonik-Lightitalic.ttf",
+            path: "../public/assets/fonts/Aeonik/Aeonik-LightItalic.ttf",
             weight: "300",
             style: "italic",
         },
@@ -38,7 +38,7 @@ export const aeonikFont = localFont({
             style: "normal",
         },
         {
-            path: "../public/assets/fonts/Aeonik/Aeonik-Regularitalic.ttf",
+            path: "../public/assets/fonts/Aeonik/Aeonik-RegularItalic.ttf",
             weight: "400",
             style: "italic",
         },
@@ -48,7 +48,7 @@ export const aeonikFont = localFont({
             style: "normal",
         },
         {
-            path: "../public/assets/fonts/Aeonik/Aeonik-Mediumitalic.ttf",
+            path: "../public/assets/fonts/Aeonik/Aeonik-MediumItalic.ttf",
             weight: "500",
             style: "italic",
         },
@@ -58,7 +58,7 @@ export const aeonikFont = localFont({
             style: "normal",
         },
         {
-            path: "../public/assets/fonts/Aeonik/Aeonik-Bolditalic.ttf",
+            path: "../public/assets/fonts/Aeonik/Aeonik-BoldItalic.ttf",
             weight: "700",
             style: "italic",
         },
@@ -68,7 +68,7 @@ export const aeonikFont = localFont({
             style: "normal",
         },
         {
-            path: "../public/assets/fonts/Aeonik/Aeonik-Blackitalic.ttf",
+            path: "../public/assets/fonts/Aeonik/Aeonik-BlackItalic.ttf",
             weight: "900",
             style: "italic",
         }
