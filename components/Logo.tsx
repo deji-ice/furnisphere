@@ -4,10 +4,11 @@ import React from "react";
 type LogoProps = {
   isOpen?: boolean;
   scrolled?: boolean;
+  zIndex?: number;
 };
-const Logo = ({ isOpen, scrolled }: LogoProps) => {
+const Logo = ({ isOpen, scrolled, zIndex }: LogoProps) => {
   return (
-    <div className={`relative z-5 flex items-center gap-2.5`}>
+    <div className={`relative z-${zIndex} flex items-center gap-2.5`}>
       {isOpen ? (
         <div className="flex items-center gap-2.5">
           <Image

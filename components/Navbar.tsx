@@ -29,18 +29,18 @@ const MobileMenu = ({ isOpen, links, onClose, scrolled }: MobileMenuProps) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.3 }}
-          className="absolute  bg-white w-full top-0 pt-20 z-41 shadow-lg rounded-b-lg p-4.5 md:p-7 md:pt-24 lg:hidden"
+          className="absolute top-0 z-8 w-full rounded-b-lg bg-white p-4.5 pt-20 shadow-lg md:p-7 md:pt-24 lg:hidden"
         >
           {links.map((link) => (
             <Link
               key={link.name}
               href={link.path}
-              className="flex flex-col py-2.5 md:text-lg text-gray-800 hover:bg-gray-200 rounded"
+              className="flex flex-col rounded py-2.5 text-gray-800 hover:bg-gray-200 md:text-lg"
             >
               {link.name}
             </Link>
           ))}
-          <button className="border-2 border-slate-900 w-full px-2 py-2 text-slate-950 text-lg font-medium rounded-sm mt-3 md:hidden">
+          <button className="mt-3 w-full rounded-sm border-2 border-slate-900 px-2 py-2 text-lg font-medium text-slate-950 md:hidden">
             Login
           </button>
         </motion.div>
@@ -48,83 +48,173 @@ const MobileMenu = ({ isOpen, links, onClose, scrolled }: MobileMenuProps) => {
     </AnimatePresence>
   );
 };
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <motion.nav
-      className={` py-5 md:px-6 lg:px-[70px] flex items-center  fixed w-full justify-between z-40 ${
+      initial={{ opacity: 0, y: -20 }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        backgroundColor: scrolled
+          ? "rgba(255, 255, 255, 0.5)"
+          : "rgba(255, 255, 255, 0)",
+        backdropFilter: scrolled ? "blur(8px)" : "blur(0px)",
+        boxShadow: scrolled
+          ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)"
+          : "0 0px 0px 0px rgba(0, 0, 0, 0)",
+        color: scrolled ? "#1e1e1e" : "#ffffff",
+      }}
+      transition={{
+        duration: 0.2,
+        ease: [0.25, 0.1, 0.25, 1.0],
+        backdropFilter: { duration: 0.3 },
+        backgroundColor: { duration: 0.3 },
+      }}
+      className={`fixed z-8 flex w-full items-center justify-between py-5 md:px-6 lg:px-[70px] ${
         scrolled
-          ? "  px-2  text-slate-900 rounded-b-xl lg:rounded-none backdrop-blur-[2px] bg-background/50  shadow-sm"
-          : "bg-transparent px-4  text-white"
+          ? "bg-background/50 rounded-b-xl px-2 text-slate-900 shadow-sm backdrop-blur-[2px] lg:rounded-none"
+          : "bg-transparent px-4 text-white"
       }`}
     >
-      <Logo scrolled={scrolled} isOpen={isMenuOpen} />
+      <Logo scrolled={scrolled} isOpen={isMenuOpen} zIndex={10} />
 
-      <div className="hidden lg:flex items-center gap-8">
-        {links.map((link) => (
-          <Link
+      <div className="hidden items-center gap-8 lg:flex">
+        {links.map((link, index) => (
+          <motion.div
             key={link.name}
-            href={link.path}
-            className="text-base font-medium hover:text-gray-200"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{
+              duration: 0.15,
+              delay: index * 0.05,
+            }}
           >
-            {link.name}
-          </Link>
+            <Link
+              href={link.path}
+              className={`relative cursor-pointer text-base transition-all duration-300 ease-in-out ${
+                scrolled
+                  ? "text-slate-900 hover:font-medium hover:text-slate-700"
+                  : "text-white hover:text-white/80"
+              }`}
+            >
+              {link.name}
+              <motion.span
+                className={`absolute -bottom-1 left-0 h-[1px] ${scrolled ? "bg-slate-900" : "bg-white"}`}
+                initial={{ width: 0 }}
+                whileHover={{
+                  width: "100%",
+                  opacity: scrolled ? 0.7 : 0.9,
+                }}
+                transition={{
+                  duration: scrolled ? 0.2 : 0.3,
+                  ease: "easeInOut",
+                }}
+              />
+            </Link>
+          </motion.div>
         ))}
       </div>
 
-      <div className="flex  items-center relative   z-42  gap-4 lg:gap-6">
-        <Image
-          src={"/assets/icons/Search.svg"}
-          height={50}
-          width={50}
-          alt="search icon"
-          className={`h-6 w-6 ${
-            scrolled && "[filter:brightness(0.12)_saturate(0%)]"
-          } ${isMenuOpen && "[filter:brightness(0.12)_saturate(0%)] "}`}
-        />
-        <Image
-          src={"/assets/icons/Shopping bag.svg"}
-          height={50}
-          width={50}
-          alt="shopping bag icon"
-          className={`h-6 w-6 ${
-            scrolled && "[filter:brightness(0.12)_saturate(0%)]"
-          }  ${isMenuOpen && "[filter:brightness(0.12)_saturate(0%)]"}`}
-        />
+      <div className="relative z-42 flex items-center gap-4 lg:gap-6">
+        <motion.div
+          whileHover={{
+            filter: "brightness(1) saturate(100%)",
+            scale: 1.05,
+          }}
+          transition={{ duration: 0.2 }}
+          className="relative"
+        >
+          <Image
+            src={"/assets/icons/Search.svg"}
+            height={50}
+            width={50}
+            alt="search icon"
+            className={`h-6 w-6 cursor-pointer transition-all duration-300 ${
+              scrolled ? "[filter:brightness(0.12)_saturate(0%)]" : ""
+            } ${isMenuOpen ? "[filter:brightness(0.12)_saturate(0%)]" : ""}`}
+          />
+        </motion.div>
+
+        <motion.div
+          whileHover={{
+            filter: "brightness(1) saturate(100%)",
+            scale: 1.05,
+          }}
+          transition={{ duration: 0.2 }}
+          className="relative"
+        >
+          <Image
+            src={"/assets/icons/Shopping bag.svg"}
+            height={50}
+            width={50}
+            alt="shopping bag icon"
+            className={`h-6 w-6 cursor-pointer transition-all duration-300 ${
+              scrolled ? "[filter:brightness(0.12)_saturate(0%)]" : ""
+            } ${isMenuOpen ? "[filter:brightness(0.12)_saturate(0%)]" : ""}`}
+          />
+        </motion.div>
+
         <div
-          className={`w-0.5 h-8 hidden md:block ${scrolled && "bg-black"} ${
-            isMenuOpen ? "bg-[#1e1e1e]" : "bg-white"
-          }
-          `}
+          className={`hidden h-8 w-0.5 md:block ${
+            scrolled || isMenuOpen ? "bg-[#1e1e1e]" : "bg-white"
+          } `}
         />
-        <button
-          className={` hidden md:block ${
-            scrolled && "[filter:brightness(0.12)_saturate(0%)]"
-          } ${isMenuOpen && "[filter:brightness(0.12)_saturate(0%)]"}
-          `}
+
+        <motion.button
+          whileHover={{
+            color: "#FFFFFF",
+            scale: 1.05,
+          }}
+          transition={{ duration: 0.2 }}
+          className={`hidden cursor-pointer transition-all duration-300 md:block ${
+            scrolled ? "text-[#1e1e1e] hover:text-white" : "text-white"
+          }`}
         >
           Login
-        </button>
-        <Image
-          src={"/assets/icons/Hamburger menu.svg"}
-          height={50}
-          width={50}
-          alt="user icon"
-          className={`h-6 w-6 lg:hidden ${
-            scrolled && "[filter:brightness(0.12)_saturate(0%)]"
-          } ${isMenuOpen && "[filter:brightness(0.12)_saturate(0%)] "}`}
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        />
+        </motion.button>
+
+        <motion.div
+          whileHover={{
+            filter: "brightness(1) saturate(100%)",
+            scale: 1.05,
+          }}
+          transition={{ duration: 0.2 }}
+          className="relative lg:hidden"
+        >
+          <Image
+            src={"/assets/icons/Hamburger menu.svg"}
+            height={50}
+            width={50}
+            alt="menu icon"
+            className={`h-6 w-6 cursor-pointer transition-all duration-300 ${
+              scrolled ? "[filter:brightness(0.12)_saturate(0%)]" : ""
+            } ${isMenuOpen ? "[filter:brightness(0.12)_saturate(0%)]" : ""}`}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          />
+        </motion.div>
       </div>
+
       <MobileMenu
         isOpen={isMenuOpen}
         links={links}
