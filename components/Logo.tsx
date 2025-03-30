@@ -8,11 +8,8 @@ type LogoProps = {
 };
 
 const Logo = ({ isOpen, scrolled, zIndex = 10 }: LogoProps) => {
-  // Determine text color based on scroll/menu state
+  // Default values for isOpen and scrolled
   const textColor = isOpen || scrolled ? "text-slate-900" : "text-white";
-
-  // Apply filter only when scrolled or menu is open
-  const logoFilter = isOpen || scrolled ? "brightness-0" : "brightness-100";
 
   return (
     <div className="relative flex items-center gap-2.5" style={{ zIndex }}>
