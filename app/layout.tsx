@@ -8,7 +8,7 @@ import SmoothScrolling from "@/components/SmoothScrolling";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 
-const metadata: Metadata = {
+export const metadata: Metadata = {
   title: "FurniSphere",
   description:
     "Discover exquisite furniture collections for your living room, bedroom, dining & office. Premium quality, sustainable designs with nationwide delivery and easy returns.",
@@ -75,10 +75,22 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  return (
+    <html lang="en">
+      <body
+        className={`${aeonikFont.variable} overflow-x-hidden bg-[#fafafa] antialiased`}
+      >
+        <ClientLayout>{children}</ClientLayout>
+      </body>
+    </html>
+  );
+}
+
+("use client");
+function ClientLayout({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000);
@@ -86,21 +98,13 @@ export default function RootLayout({
     return () => clearTimeout(timer);
   }, []);
 
-  return (
-    <html lang="en">
-      <body
-        className={`${aeonikFont.variable} overflow-x-hidden bg-[#fafafa] antialiased`}
-      >
-        {loading ? (
-          <LoadingScreen />
-        ) : (
-          <main className="relative w-full overflow-x-hidden">
-            <Navbar />
-            <SmoothScrolling>{children}</SmoothScrolling>
-            <Footer />
-          </main>
-        )}
-      </body>
-    </html>
+  return loading ? (
+    <LoadingScreen />
+  ) : (
+    <main className="relative w-full overflow-x-hidden">
+      <Navbar />
+      <SmoothScrolling>{children}</SmoothScrolling>
+      <Footer />
+    </main>
   );
 }
