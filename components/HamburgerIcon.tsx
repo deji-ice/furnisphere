@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "motion/react";
 
 type HamburgerIconProps = {
@@ -7,9 +8,19 @@ type HamburgerIconProps = {
 };
 
 const HamburgerIcon = ({ isOpen, isDark, onClick }: HamburgerIconProps) => {
-  const lineClass = `absolute left-0 h-[2px] w-6 rounded-full transition-colors ${
+  const lineClass = `absolute left-0 h-[2px] top-2.5 w-6 rounded-full transition-colors ${
     isDark ? "bg-slate-900" : "bg-white"
   }`;
+
+  const topLineVariants = {
+    closed: { rotate: 0, y: -4 },
+    open: { rotate: 45, y: 5 },
+  };
+
+  const bottomLineVariants = {
+    closed: { rotate: 0, y: 4 },
+    open: { rotate: -45, y: 5 },
+  };
 
   return (
     <button
@@ -18,36 +29,22 @@ const HamburgerIcon = ({ isOpen, isDark, onClick }: HamburgerIconProps) => {
       aria-label="Toggle menu"
       aria-expanded={isOpen}
     >
-      <motion.span
-        className={lineClass}
-        initial={false}
-        animate={{
-          top: isOpen ? "50%" : "25%",
-          rotate: isOpen ? 45 : 0,
-          y: isOpen ? "-50%" : 0,
-        }}
-        transition={{ duration: 0.15 }}
-      />
-      <motion.span
-        className={lineClass}
-        initial={false}
-        animate={{
-          opacity: isOpen ? 0 : 1,
-          top: "50%",
-          y: "-50%",
-        }}
-        transition={{ duration: 0.15 }}
-      />
-      <motion.span
-        className={lineClass}
-        initial={false}
-        animate={{
-          bottom: isOpen ? "50%" : "25%",
-          rotate: isOpen ? -45 : 0,
-          y: isOpen ? "50%" : 0,
-        }}
-        transition={{ duration: 0.15 }}
-      />
+      <div className="absolute inset-0">
+        <motion.span
+          className={lineClass}
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          variants={topLineVariants}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        />
+        <motion.span
+          className={lineClass}
+          initial="closed"
+          animate={isOpen ? "open" : "closed"}
+          variants={bottomLineVariants}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+        />
+      </div>
     </button>
   );
 };

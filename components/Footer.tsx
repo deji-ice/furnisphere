@@ -7,7 +7,7 @@ const Footer = () => {
     { name: "Twitter", icon: "/assets/icons/X.svg" },
     { name: "Facebook", icon: "/assets/icons/Facebook.svg" },
     { name: "Instagram", icon: "/assets/icons/Instagram.svg" },
-    { name: "LinkedIn", icon: "/assets/icons/LinkedIn.svg" },
+    { name: "LinkedIn", icon: "/assets/icons/Linkedin.svg" },
   ];
 
   return (

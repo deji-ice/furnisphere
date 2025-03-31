@@ -25,12 +25,12 @@ const Offers = () => {
     },
   ];
   return (
-    <section className="my-16 space-y-6 xl:space-y-14 px-3">
+    <section className="my-16 space-y-6 px-3 xl:space-y-14">
       <div className="flex flex-col items-center justify-center gap-2.5 lg:gap-5">
         <h2 className="text-center text-3xl font-medium lg:text-5xl">
           What We Can Offer You
         </h2>
-        <p className="w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] md:w-full lg:max-w-[680px] lg:text-xl">
+        <p className="w-full max-w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] md:w-full lg:max-w-[680px] lg:text-xl">
           High-quality, stylish, and functional furniture designed to elevate
           your space with comfort and elegance.
         </p>
@@ -39,7 +39,7 @@ const Offers = () => {
         {offers.map((offer, index) => (
           <div
             key={index}
-            className="flex h-[335px] w-[368px] flex-col items-center justify-center rounded-3xl border-[1.25px] border-[#EAEAEA] bg-[#F2F2F2] text-center md:w-[348px] md:last:col-span-2 lg:w-[300px] lg:last:col-span-1 xl:w-[420px] xl:w-[]"
+            className="flex h-[335px] w-full max-w-[368px] flex-col items-center justify-center rounded-3xl border-[1.25px] border-[#EAEAEA] bg-[#F2F2F2] text-center md:w-[348px] md:last:col-span-2 lg:w-[300px] lg:last:col-span-1 xl:w-[420px]"
           >
             <Image height={72} width={72} src={offer.icon} alt="" />
             <h3 className="mt-5 text-[40px] font-normal text-[#1E1E1E] lg:text-4xl">

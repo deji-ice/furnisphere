@@ -19,7 +19,7 @@ const FaqCard = ({ isOpen, faq, onClick }: FaqCardProps) => {
       onClick={onClick}
       className="flex cursor-pointer flex-col items-center gap-3.5 self-start rounded-[20px] border border-[rgba(220,220,220,1)] p-5.5 lg:gap-5 lg:p-8"
     >
-      <div className="flex w-[315px] items-baseline justify-between md:min-w-[640px] lg:w-full lg:min-w-[400px] xl:w-full xl:min-w-[590px]">
+      <div className="flex w-full max-w-[315px] items-baseline justify-between md:min-w-[640px] lg:w-full lg:min-w-[400px] xl:w-full xl:min-w-[590px]">
         <p className="w-[290px] text-lg font-medium text-[#181818] md:w-full md:text-xl">
           {faq.question}
         </p>
@@ -45,7 +45,7 @@ const FaqCard = ({ isOpen, faq, onClick }: FaqCardProps) => {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.06 }}
-              className="w-[315px] text-sm text-[rgba(102,102,102,1)] md:w-full md:min-w-[640px] md:text-base lg:w-full lg:min-w-[400px] xl:w-full xl:max-w-[580px]"
+              className="w-full max-w-[315px] text-sm text-[rgba(102,102,102,1)] md:w-full md:min-w-[640px] md:text-base lg:w-full lg:min-w-[400px] xl:w-full xl:max-w-[580px]"
             >
               {faq.answer}
             </motion.p>

@@ -51,7 +51,7 @@ const FAQs = () => {
         <h2 className="text-center text-3xl font-medium lg:text-5xl">
           You’ve Got Questions & We’ve Got Answers!
         </h2>
-        <p className="mt-1 w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] lg:w-[400px] lg:max-w-[400px] lg:text-xl">
+        <p className="mt-1 w-full max-w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] lg:w-[400px] lg:max-w-[400px] lg:text-xl">
           Still have a questions in mind?
         </p>
         <button className="flex h-[58px] w-[170px] cursor-pointer items-center justify-center gap-2 rounded-full bg-[#1E1E1E] px-4 text-white transition duration-300 ease-in-out hover:bg-[#333333] lg:w-[200px] lg:text-lg">

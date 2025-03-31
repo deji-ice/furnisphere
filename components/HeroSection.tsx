@@ -12,7 +12,7 @@ const HeroSection = () => {
         priority
         className="object-cover object-center"
       />
-      <div className="relative z-5 flex flex-col items-center gap-4 text-center text-[#FAFAFA] md:gap-6">
+      <div className="relative z-10 flex flex-col items-center gap-4 text-center text-[#FAFAFA] md:gap-6">
         <h2 className="text-3xl leading-10 font-medium capitalize md:text-4xl md:leading-12 lg:text-[70px] lg:leading-20">
           Find the perfect furniture to complete your home
         </h2>
@@ -20,11 +20,14 @@ const HeroSection = () => {
           We specialize in buying and selling high-quality, marketable
           furniture, each piece reflecting our unique aesthetic.
         </p>
-        <button aria-label="Shop now for furniture" className="mt-8 h-14 w-44 cursor-pointer rounded-[50px] bg-[#FAFAFA] p-2.5 text-xl font-medium text-slate-950 lg:mt-5">
+        <button
+          aria-label="Shop now for furniture"
+          className="mt-8 h-14 w-44 cursor-pointer rounded-[50px] bg-[#FAFAFA] p-2.5 text-xl font-medium text-slate-950 lg:mt-5"
+        >
           Shop Now
         </button>
       </div>
-      <span className="absolute bottom-8 z-5 flex h-12 w-12 items-center justify-center rounded-full border border-white bg-transparent hover:bg-white/10">
+      <span className="absolute bottom-8 z-10 flex h-12 w-12 items-center justify-center rounded-full border border-white bg-transparent hover:bg-white/10">
         <Image
           src="/assets/icons/Arrow Down.svg"
           height={50}

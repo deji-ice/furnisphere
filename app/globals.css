@@ -36,3 +36,31 @@ body {
   color: var(--foreground);
   font-family: var(--font-aeonik);
 }
+
+html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+@media (max-width: 380px) {
+  :root {
+    --small-screen-padding: 0.5rem;
+  }
+
+  section {
+    padding-left: var(--small-screen-padding);
+    padding-right: var(--small-screen-padding);
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  .w-full {
+    width: 100% !important;
+  }
+}

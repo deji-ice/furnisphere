@@ -26,13 +26,19 @@ const MobileMenu = ({ isOpen, links, onClose }: MobileMenuProps) => {
     <AnimatePresence mode="wait">
       {isOpen && (
         <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.15 }}
-          className="absolute top-0 right-0 left-0 z-40 w-full bg-white shadow-lg lg:hidden"
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          transition={{
+            duration: 0.3,
+            ease: "easeInOut",
+          }}
+          className="absolute top-0 right-0 left-0 z-40 max-h-screen w-full overflow-y-auto bg-white shadow-lg lg:hidden"
         >
-          <nav className="flex flex-col space-y-2 p-4 pt-20">
+          <div className="flex items-center justify-end p-4">
+            <HamburgerIcon isOpen={true} isDark={true} onClick={onClose} />
+          </div>
+          <nav className="flex flex-col space-y-2 p-4">
             {links.map((link) => (
               <Link
                 key={link.name}
@@ -69,6 +75,7 @@ const Navbar = () => {
           setScrolled(window.scrollY > 20);
           ticking = false;
         });
+
         ticking = true;
       }
     };
@@ -90,10 +97,10 @@ const Navbar = () => {
         boxShadow: scrolled ? "0 4px 6px -1px rgba(0, 0, 0, 0.1)" : "none",
       }}
       transition={{
-        duration: 0.2, 
+        duration: 0.2,
         ease: [0.25, 0.1, 0.25, 1.0],
       }}
-      className={`fixed z-50 flex w-full items-center justify-between py-5 px-3 md:px-6 lg:px-[70px] ${
+      className={`fixed z-50 flex w-full items-center justify-between px-2 py-3 md:px-6 md:py-5 lg:px-[70px] ${
         scrolled
           ? "bg-white/50 text-slate-900 shadow-sm backdrop-blur-md"
           : "bg-transparent text-white"
@@ -140,7 +147,7 @@ const Navbar = () => {
         ))}
       </div>
 
-      <div className="relative z-42 flex items-center gap-4 lg:gap-6">
+      <div className="relative z-40 flex items-center gap-2 sm:gap-4 lg:gap-6">
         <motion.div
           whileHover={{
             filter: "brightness(1) saturate(100%)",
@@ -151,10 +158,10 @@ const Navbar = () => {
         >
           <Image
             src={"/assets/icons/Search.svg"}
-            height={50}
-            width={50}
+            height={24}
+            width={24}
             alt="search icon"
-            className={`h-6 w-6 cursor-pointer transition-all duration-300 ${
+            className={`h-5 w-5 cursor-pointer transition-all duration-300 sm:h-6 sm:w-6 ${
               scrolled ? "[filter:brightness(0.12)_saturate(0%)]" : ""
             } ${isMenuOpen ? "[filter:brightness(0.12)_saturate(0%)]" : ""}`}
           />
@@ -170,10 +177,10 @@ const Navbar = () => {
         >
           <Image
             src={"/assets/icons/Shopping bag.svg"}
-            height={50}
-            width={50}
+            height={24}
+            width={24}
             alt="shopping bag icon"
-            className={`h-6 w-6 cursor-pointer transition-all duration-300 ${
+            className={`h-5 w-5 cursor-pointer transition-all duration-300 sm:h-6 sm:w-6 ${
               scrolled ? "[filter:brightness(0.12)_saturate(0%)]" : ""
             } ${isMenuOpen ? "[filter:brightness(0.12)_saturate(0%)]" : ""}`}
           />

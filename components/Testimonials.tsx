@@ -36,7 +36,7 @@ const Testimonials = () => {
         <h2 className="text-center text-3xl font-medium lg:text-5xl">
           Word From Our Happy Customers
         </h2>
-        <p className="w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] lg:w-[400px] lg:max-w-[550px] lg:text-xl xl:w-full">
+        <p className="w-full max-w-[395px] px-2 text-center text-[15px] font-normal text-[#878787] lg:w-[400px] lg:max-w-[550px] lg:text-xl xl:w-full">
           Hear from our clients as they share how FurniSphere furniture
           transforms their homes
         </p>

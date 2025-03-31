@@ -1,109 +1,122 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 
 const LoadingScreen = () => {
-  const [loading, setLoading] = useState(true);
+ 
   const containerRef = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const progressBarRef = useRef<HTMLDivElement>(null);
 
+
+  const initialLogoStyle = {
+    transform: "translateX(-100vw) rotate(-180deg)",
+    opacity: 0,
+  };
+
+  const initialTextStyle = {
+    transform: "translateX(100vw)",
+    opacity: 0,
+  };
+
+  const initialProgressStyle = {
+    opacity: 0,
+  };
+
   useEffect(() => {
-    // Lock scroll while loading
     document.body.style.overflow = "hidden";
 
-    let timeline: gsap.core.Timeline;
+    // Single timeline for better performance
+    const timeline = gsap.timeline({
+      paused: true,
+      onComplete: () => {
+        document.body.style.overflow = "visible";
+      },
+    });
 
-    const animate = () => {
-      timeline = gsap.timeline({
-        onComplete: () => {
-          setTimeout(() => {
-            setLoading(false);
-            document.body.style.overflow = "visible";
-          }, 300);
-        },
-      });
-
-      // Initial setup
-      gsap.set(logoRef.current, { x: -100, rotation: -180, opacity: 0 });
-      gsap.set(textRef.current, { x: 100, opacity: 0 });
-      gsap.set(progressRef.current, { opacity: 0 });
-      gsap.set(progressBarRef.current, { scaleX: 0, transformOrigin: "left" });
-
-      // Animation sequence
-      timeline
-        .to(containerRef.current, { opacity: 1, duration: 0.3 })
-        .to(logoRef.current, {
+    // Combined animations for better performance
+    timeline
+      .to(logoRef.current, {
+        x: 0,
+        rotation: 360,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.inOut",
+      })
+      .to(
+        textRef.current,
+        {
           x: 0,
-          rotation: 0,
           opacity: 1,
-          duration: 1.2,
+          duration: 0.8,
           ease: "power2.out",
-        })
-        .to(
-          textRef.current,
-          {
-            x: 0,
-            opacity: 1,
-            duration: 1,
-            ease: "power2.out",
-          },
-          "-=0.8"
-        )
-        .to(progressRef.current, {
+        },
+        "-=0.5"
+      )
+      .to(
+        [progressRef.current, progressBarRef.current],
+        {
           opacity: 1,
-          duration: 0.3,
-        })
-        .to(progressBarRef.current, {
           scaleX: 1,
-          duration: 1.5,
-          ease: "power1.inOut",
-        });
-    };
+          duration: 1,
+          ease: "none",
+          stagger: 0.1,
+        },
+        0
+      );
 
-    animate();
+    // Play timeline immediately
+    timeline.play();
 
-    // Cleanup function
     return () => {
-      if (timeline) {
-        timeline.kill();
-      }
+      timeline.kill();
       document.body.style.overflow = "visible";
     };
   }, []);
-
-  if (!loading) return null;
 
   return (
     <div
       ref={containerRef}
       className="fixed inset-0 z-[9999] flex h-screen w-screen items-center justify-center bg-[#FAFAFA]"
-      style={{ opacity: 0 }}
     >
       <div className="flex items-center gap-3">
-        <div ref={logoRef} className="relative h-12 w-12">
+        <div
+          ref={logoRef}
+          className="relative h-12 w-12"
+          style={initialLogoStyle}
+        >
           <Image
             src="/assets/icons/Logo.svg"
             alt="FurniSphere Logo"
             fill
+            priority
+            loading="eager"
             className="object-contain filter-[brightness(0)]"
           />
         </div>
 
-        <h1 ref={textRef} className="text-2xl font-medium text-slate-900">
+        <h1
+          ref={textRef}
+          className="text-2xl font-medium text-slate-900"
+          style={initialTextStyle}
+        >
           FurniSphere
         </h1>
       </div>
 
-      {/* Progress Bar */}
       <div
         ref={progressRef}
         className="absolute bottom-20 h-0.5 w-48 overflow-hidden rounded-full bg-gray-200"
+        style={initialProgressStyle}
       >
-        <div ref={progressBarRef} className="h-full w-full bg-slate-900" />
+        <div
+          ref={progressBarRef}
+          className="h-full w-full bg-slate-900"
+          style={{ transform: "scaleX(0)", transformOrigin: "left" }}
+        />
       </div>
     </div>
   );

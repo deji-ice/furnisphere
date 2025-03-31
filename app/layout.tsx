@@ -1,13 +1,14 @@
+"use client";
 import type { Metadata } from "next";
+import { useState, useEffect } from "react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { aeonikFont } from "./fonts";
 import SmoothScrolling from "@/components/SmoothScrolling";
 import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
-import { LoadingProvider } from "@/context/LoadingContext";
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: "FurniSphere",
   description:
     "Discover exquisite furniture collections for your living room, bedroom, dining & office. Premium quality, sustainable designs with nationwide delivery and easy returns.",
@@ -71,20 +72,34 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <html lang="en">
-      <body className={`${aeonikFont.variable} bg-[#fafafa] antialiased`}>
-        <LoadingProvider>
+      <body
+        className={`${aeonikFont.variable} overflow-x-hidden bg-[#fafafa] antialiased`}
+      >
+        {loading ? (
           <LoadingScreen />
-          <main className="relative">
+        ) : (
+          <main className="relative w-full overflow-x-hidden">
             <Navbar />
             <SmoothScrolling>{children}</SmoothScrolling>
             <Footer />
           </main>
-        </LoadingProvider>
+        )}
       </body>
     </html>
   );
