@@ -86,7 +86,7 @@ export default function RootLayout({
   );
 }
 
-("use client");
+
 function ClientLayout({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true);
 
