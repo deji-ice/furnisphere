@@ -11,13 +11,18 @@ const HeroSection = () => {
         alt="Hero background"
         fill
         priority
+        fetchPriority={"high"}
+        quality={85} // Add quality control
+        placeholder="blur" // Add blur placeholder
+        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQ..." 
         className="object-cover object-center"
+        sizes="100vw"
       />
       <div className="relative z-10 flex flex-col items-center gap-4 text-center text-[#FAFAFA] md:gap-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-3xl leading-10 font-medium capitalize md:text-4xl md:leading-12 lg:text-[70px] lg:leading-20"
         >
           Find the perfect furniture to complete your home

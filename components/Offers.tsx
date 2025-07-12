@@ -41,7 +41,7 @@ const Offers = () => {
             key={index}
             className="flex h-[335px] w-full max-w-[368px] flex-col items-center justify-center rounded-3xl border-[1.25px] border-[#EAEAEA] bg-[#F2F2F2] text-center md:w-[348px] md:last:col-span-2 lg:w-[300px] lg:last:col-span-1 xl:w-[420px]"
           >
-            <Image height={72} width={72} src={offer.icon} alt="" />
+            <Image height={72} width={72} src={offer.icon} loading="lazy" alt="" />
             <h3 className="mt-5 text-[40px] font-normal text-[#1E1E1E] lg:text-4xl">
               {offer.title}
             </h3>

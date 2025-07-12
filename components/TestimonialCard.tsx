@@ -31,6 +31,7 @@ const TestimonialCard = ({ review }: TestimonialCardProps) => {
             width={24}
             height={24}
             alt=" review star"
+            loading="lazy"
           />
           <p className="text-lg text-[#F0A111]"> {review.rating}</p>
         </span>
@@ -41,6 +42,7 @@ const TestimonialCard = ({ review }: TestimonialCardProps) => {
           alt={review.product.name}
           height={200}
           width={200}
+           loading="lazy"
           className="w-full rounded-3xl object-contain"
         />
       </div>

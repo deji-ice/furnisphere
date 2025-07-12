@@ -62,6 +62,7 @@ const FAQs = () => {
             className="h-5"
             width={20}
             height={20}
+             loading="lazy"
             style={{ filter: "invert(1)" }}
           />
         </button>

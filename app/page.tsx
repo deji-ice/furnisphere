@@ -1,10 +1,31 @@
-import CTA from "@/components/CTA";
-import FAQs from "@/components/FAQs";
+import dynamic from "next/dynamic";
 import HeroSection from "@/components/HeroSection";
-import HomeRecommendations from "@/components/HomeRecommendations";
 import NewCollection from "@/components/NewCollection";
-import Offers from "@/components/Offers";
-import Testimonials from "@/components/Testimonials";
+
+const HomeRecommendations = dynamic(
+  () => import("@/components/HomeRecommendations"),
+  {
+    loading: () => (
+      <div className="h-32 animate-pulse rounded-lg bg-gray-100" />
+    ),
+  }
+);
+
+const Offers = dynamic(() => import("@/components/Offers"), {
+  loading: () => <div className="h-32 animate-pulse rounded-lg bg-gray-100" />,
+});
+
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+  loading: () => <div className="h-32 animate-pulse rounded-lg bg-gray-100" />,
+});
+
+const FAQs = dynamic(() => import("@/components/FAQs"), {
+  loading: () => <div className="h-32 animate-pulse rounded-lg bg-gray-100" />,
+});
+
+const CTA = dynamic(() => import("@/components/CTA"), {
+  loading: () => <div className="h-32 animate-pulse rounded-lg bg-gray-100" />,
+});
 
 export default function Home() {
   return (

@@ -12,6 +12,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/assets/images/background.png"
+          fetchPriority="high"
+        />
+      </head>
       <body
         className={`${aeonikFont.variable} overflow-x-hidden bg-[#fafafa] antialiased`}
       >
