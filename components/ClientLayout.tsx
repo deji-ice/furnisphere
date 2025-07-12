@@ -21,9 +21,7 @@ export default function ClientLayout({
     return () => clearTimeout(timer);
   }, []);
 
-  return loading ? (
-    <LoadingScreen />
-  ) : (
+  return (
     <main className="relative w-full overflow-x-hidden">
       <Navbar />
       <SmoothScrolling>{children}</SmoothScrolling>
