@@ -51,7 +51,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           width={50}
           alt="shopping bag icon"
           loading="lazy"
-          className="h-12 w-12 rounded-xl bg-white p-3"
+          className="h-12 w-12 rounded-xl cursor-copy bg-white p-3"
         />
       </div>
     </div>
